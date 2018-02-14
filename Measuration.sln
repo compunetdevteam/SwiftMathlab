@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Measuration", "Measuration\Measuration.csproj", "{A34E3D90-AC2C-47C3-92B0-32495178B801}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A34E3D90-AC2C-47C3-92B0-32495178B801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34E3D90-AC2C-47C3-92B0-32495178B801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34E3D90-AC2C-47C3-92B0-32495178B801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34E3D90-AC2C-47C3-92B0-32495178B801}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4794557B-BD7E-4A3A-B965-F88CBFE4990F}
+	EndGlobalSection
+EndGlobal
