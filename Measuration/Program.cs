@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Measuration.Equations;
 
 namespace Measuration
 {
@@ -15,11 +16,14 @@ namespace Measuration
             Console.WriteLine("Enter: \nT for Triangle \nS for Square \nR for Rectangle " +
                               "\nC for Circle \nP for Parallelogram \nTR for Trapezoid  " +
                               " \nRH for Rhombus \nSC for Semi Circle \nSP for Sphere \nCO for Cone " +
-                              "\nCY for Cylinder\nPR for Rectangular Prism \nPY for Pyramid \nTP for Triangular Prism");
+                              "\nCY for Cylinder\nPR for Rectangular Prism \nPY for Pyramid \nTP for Triangular Prism" +
+                              "\nA for Angles\nQ for Quadratic Equation\nSE for Simultaneous Equation");
             string shapeChoice = Console.ReadLine();
 
             IShape shape = null;
             ISolid solid = null;
+            IAngle angle = null;
+            IEquation eqn = null;
             if (shapeChoice.ToUpper().Equals("T"))
             {
                 Console.WriteLine("Please Provide the Length of the Triangle:");
@@ -136,7 +140,40 @@ namespace Measuration
                 double tripriHeight = Convert.ToDouble(Console.ReadLine());
                 solid = new TriangularPrism(tripriLength, tripriSide, tripriHeight);
             }
-
+            else if (shapeChoice.ToUpper().Equals("A"))
+            {
+                Console.WriteLine("Please Provide the value Angle in degree:");
+                double angleDegree = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value Angle in radian:");
+                double angleRadian = Convert.ToDouble(Console.ReadLine());
+                angle = new AngleConversion(angleRadian, angleDegree);
+            }
+            else if (shapeChoice.ToUpper().Equals("Q"))
+            {
+                Console.WriteLine("Please Provide the value A:");
+                double quadA = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value B:");
+                double quadB = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value C:");
+                double quadC = Convert.ToDouble(Console.ReadLine());
+                eqn = new Quadratic(quadA, quadB,quadC);
+            }
+            else if (shapeChoice.ToUpper().Equals("SE"))
+            {
+                Console.WriteLine("Please Provide the value A:");
+                double simA = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value B:");
+                double simB = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value C:");
+                double simC = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value D:");
+                double simD = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value E:");
+                double simE = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Please Provide the value F:");
+                double simF = Convert.ToDouble(Console.ReadLine());
+                eqn = new Simultaneous(simA, simB, simC, simD, simE, simF);
+            }
 
 
 
@@ -145,6 +182,9 @@ namespace Measuration
             Console.WriteLine($"The Perimeter of the selected Shape is {shape?.GetPerimeter()}");
             Console.WriteLine($"The Surface Area of the selected Shape is {solid?.GetSurfaceArea()}");
             Console.WriteLine($"The Volume of the selected Shape is {solid?.GetVolume()}");
+            Console.WriteLine($"The Value of the angle in Degree is {angle?.GetRadianToDegree()}");
+            Console.WriteLine($"The Value of the angle in Radian is {angle?.GetDegreeToRadian()}");
+            Console.WriteLine($"The Values of X1 and X2 in the Equations are {eqn?.GetFirstValue()} and {eqn?.GetSecondValue()}");
         }
     }
 }

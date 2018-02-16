@@ -13,4 +13,18 @@
 
         double GetVolume();
     }
+
+    public interface IAngle
+    {
+        double GetDegreeToRadian();
+
+        double GetRadianToDegree();
+    }
+
+    public interface IEquation
+    {
+        double GetFirstValue();
+
+        double GetSecondValue();
+    }
 }
