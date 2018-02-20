@@ -5,26 +5,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Measuration.Equations;
+using Measuration.Matrix;
 
 namespace Measuration
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("==> What Shape do you want to Calculate?: ");
-            Console.WriteLine("Enter: \nT for Triangle \nS for Square \nR for Rectangle " +
-                              "\nC for Circle \nP for Parallelogram \nTR for Trapezoid  " +
-                              " \nRH for Rhombus \nSC for Semi Circle \nSP for Sphere \nCO for Cone " +
-                              "\nCY for Cylinder\nPR for Rectangular Prism \nPY for Pyramid \nTP for Triangular Prism" +
-                              "\nA for Angles\nQ for Quadratic Equation\nSE for Simultaneous Equation");
+            Start:
+            Console.WriteLine("Enter Corresponding Key fot the shape to Calculate?: ");
+            Console.WriteLine("\tEnter: \n\tT for \tTriangle \n\tS for \tSquare \n\tR for \tRectangle " +
+                              "\n\tC for \tCircle \n\tP for \tParallelogram \n\tTR for \tTrapezoid  " +
+                              " \n\tRH for \tRhombus \n\tSC for \tSemi Circle " +
+                              "\n\tSP for \tSphere \n\tCO for \tCone " +
+                              "\n\tCY for \tCylinder\n\tPR for \tRectangular Prism \n\tPY for \tPyramid " +
+                              "\n\tTP for Triangular Prism" +
+                              "\n\tDR for \tDegree To Radian\n\tRD for \tRadian To Degree" +
+                              "\n\tQ for \tQuadratic Equation\n\tSE for \tSimultaneous Equation" +
+                              "\n\tMT for 2X2 Matrix Determinant \n\tMTT for 3X3 Matrix Determinant");
             string shapeChoice = Console.ReadLine();
 
             IShape shape = null;
             ISolid solid = null;
             IAngle angle = null;
             IEquation eqn = null;
-            if (shapeChoice.ToUpper().Equals("T"))
+            IMatrix matrix = null;
+            if(shapeChoice.ToUpper().Equals("T"))
             {
                 Console.WriteLine("Please Provide the Length of the Triangle:");
                 double triLenghth = Convert.ToDouble(Console.ReadLine());
@@ -140,13 +147,17 @@ namespace Measuration
                 double tripriHeight = Convert.ToDouble(Console.ReadLine());
                 solid = new TriangularPrism(tripriLength, tripriSide, tripriHeight);
             }
-            else if (shapeChoice.ToUpper().Equals("A"))
+            else if (shapeChoice.ToUpper().Equals("DR"))
             {
                 Console.WriteLine("Please Provide the value Angle in degree:");
-                double angleDegree = Convert.ToDouble(Console.ReadLine());
+                double angleDegree = Convert.ToDouble(Console.ReadLine());   
+                angle = new DegreeToRadian(angleDegree);
+            }
+            else if (shapeChoice.ToUpper().Equals("RD"))
+            { 
                 Console.WriteLine("Please Provide the value Angle in radian:");
                 double angleRadian = Convert.ToDouble(Console.ReadLine());
-                angle = new AngleConversion(angleRadian, angleDegree);
+                angle = new RadianToDegree(angleRadian);
             }
             else if (shapeChoice.ToUpper().Equals("Q"))
             {
@@ -174,8 +185,42 @@ namespace Measuration
                 double simF = Convert.ToDouble(Console.ReadLine());
                 eqn = new Simultaneous(simA, simB, simC, simD, simE, simF);
             }
-
-
+            else if (shapeChoice.ToUpper().Equals("MT"))
+            {
+                Console.WriteLine("Matrix");
+                Console.WriteLine("Enter a: ");
+                double a = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter b: ");
+                double b = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter c: ");
+                double c = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter d: ");
+                double d = Convert.ToDouble(Console.ReadLine());
+                matrix = new Matrix2(a, b, c, d);
+            }
+            else if (shapeChoice.ToUpper().Equals("MTT"))
+            {
+                Console.WriteLine("Matrix");
+                Console.WriteLine("Enter a: ");
+                double a = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter b: ");
+                double b = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter c: ");
+                double c = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter d: ");
+                double d = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter e: ");
+                double e = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter f: ");
+                double f = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter g: ");
+                double g = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter h: ");
+                double h = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter i: ");
+                double i = Convert.ToDouble(Console.ReadLine());
+                matrix = new Matrix3(a, b, c, d, e, f, g, h, i);
+            }
 
             Console.WriteLine("------- RESULT -------");
             Console.WriteLine($"The Area of the selected Shape is {shape?.GetArea()}");
@@ -185,6 +230,18 @@ namespace Measuration
             Console.WriteLine($"The Value of the angle in Degree is {angle?.GetRadianToDegree()}");
             Console.WriteLine($"The Value of the angle in Radian is {angle?.GetDegreeToRadian()}");
             Console.WriteLine($"The Values of X1 and X2 in the Equations are {eqn?.GetFirstValue()} and {eqn?.GetSecondValue()}");
+            if (shapeChoice.ToUpper().Equals("MT"))
+            {
+                Console.WriteLine($"The Determinant of the (2 by 2) Matrix is: {matrix?.GetDeterminant()}");
+            }
+           else if (shapeChoice.ToUpper().Equals("MTT"))
+            {
+                Console.WriteLine($"The Determinant of the (3 by 3) Matrix is: {matrix?.GetDeterminant()}");
+            }
+            Console.ReadKey();
+            Console.WriteLine();
+            goto Start;
         }
+
     }
 }

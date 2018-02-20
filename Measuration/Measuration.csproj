@@ -44,12 +44,13 @@
   <ItemGroup>
     <Compile Include="Equations\Quadratic.cs" />
     <Compile Include="Equations\Simultaneous.cs" />
+    <Compile Include="Matrix\Matrices.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shape\AngleConversion.cs" />
     <Compile Include="Shape\Circle.cs" />
     <Compile Include="Shape\Cone.cs" />
     <Compile Include="Shape\Cylinder.cs" />
+    <Compile Include="Shape\DegreeRadian.cs" />
     <Compile Include="Shape\IShape.cs" />
     <Compile Include="Shape\Parallelogram.cs" />
     <Compile Include="Shape\Pyramid.cs" />
