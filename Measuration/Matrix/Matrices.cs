@@ -7,6 +7,7 @@ using Measuration.Shape;
 
 namespace Measuration.Matrix
 {
+    //Computing and Getting the value of a 2x2 Matrix
     public class Matrix2 : IMatrix
     {
         private double _a;
@@ -37,7 +38,7 @@ namespace Measuration.Matrix
         }
 
     }
-
+    //Computing 3x3 Matrix and getting the Determinant
     public class Matrix3 : IMatrix
     {
         private double _a;

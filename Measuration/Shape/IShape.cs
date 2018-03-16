@@ -31,5 +31,9 @@
     {
         double GetDeterminant();
     }
+    public interface IFactorial
+    {
+        double GetFactorial();
+    }
 
 }

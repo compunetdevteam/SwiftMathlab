@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Equations\Quadratic.cs" />
     <Compile Include="Equations\Simultaneous.cs" />
+    <Compile Include="Factorials\PermCom.cs" />
     <Compile Include="Matrix\Matrices.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
