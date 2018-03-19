@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Equations\PowerRoots.cs" />
     <Compile Include="Equations\Quadratic.cs" />
     <Compile Include="Equations\Simultaneous.cs" />
     <Compile Include="Factorials\PermCom.cs" />

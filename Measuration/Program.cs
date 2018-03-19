@@ -25,7 +25,8 @@ namespace Measuration
                               "\n\tDR for \tDegree To Radian\n\tRD for \tRadian To Degree" +
                               "\n\tQ for \tQuadratic Equation\n\tSE for \tSimultaneous Equation" +
                               "\n\tMT for the Determinant of 2X2 Matrix  \n\tMTT for the Determinant of 3X3 Matrix" +
-                              "\n\tFA for \tFactorial \n\tPE for \tPermutation \n\tCM for \tCombination");
+                              "\n\tFA for \tFactorial \n\tPE for \tPermutation \n\tCM for \tCombination" +
+                              "\n\tPW for Roots and powers");
             var shapeChoice = Console.ReadLine();
             Console.Clear();
 
@@ -35,6 +36,7 @@ namespace Measuration
             IEquation eqn = null;
             IMatrix matrix = null;
             IFactorial fact = null;
+            IPowerRoots pow = null;
             if (shapeChoice.ToUpper().Equals("T"))
             {
                 Console.Clear();
@@ -590,7 +592,7 @@ namespace Measuration
             else if (shapeChoice.ToUpper().Equals("CM"))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("You want Calculate the Permutation: ");
+                sb.AppendLine("You want Calculate the Combination: ");
                 sb.AppendLine("Parameters needed are: \nn \nr");
                 sb.AppendLine("Formular: nCr = n!/r!(n-r)!");
                 Console.WriteLine(sb.ToString());
@@ -604,9 +606,28 @@ namespace Measuration
 
                 Console.Clear();
                 Console.WriteLine(
-                    "Computing for the Permutation: \nn:{0} \nr ={1} " +
+                    "Computing for the Permutation: \nn:{0} \nr:{1} " +
                     "\nusing the relation: \n{0}C{1} = {0}!/{1}!({0}-{1})! \ngives " +
                     "\nThe Determinant is: {2}", n, r, fact?.GetFactorial());
+            }
+            else if (shapeChoice.ToUpper().Equals("PW"))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("You want Calculate squares and roots");
+                sb.AppendLine("Parameters needed are: \nNumber");
+                Console.WriteLine(sb.ToString());
+
+                Console.WriteLine("Enter a Number");
+                double n = Convert.ToDouble(Console.ReadLine());
+
+                pow = new PowerRoots(n);
+
+                Console.Clear();
+                Console.WriteLine(
+                    "Computing for the Roots and squares of a number: \nNumber:{0} \ngives " +
+                    "\nSquare:{1}\nCube: {2}\nSquare Root: {3}", n, pow?.GetSquareValue(),
+                    pow?.GetCubeValues(), pow?.GetSquareRoots());
+
             }
             Console.WriteLine();
             Console.ReadKey();

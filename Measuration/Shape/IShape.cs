@@ -36,4 +36,12 @@
         double GetFactorial();
     }
 
+    public interface IPowerRoots
+    {
+        double GetSquareValue();
+        double GetCubeValues();
+        double GetSquareRoots();
+      
+    }
+
 }
