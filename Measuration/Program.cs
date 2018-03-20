@@ -625,8 +625,8 @@ namespace Measuration
                 Console.Clear();
                 Console.WriteLine(
                     "Computing for the Roots and squares of a number: \nNumber:{0} \ngives " +
-                    "\nSquare:{1}\nCube: {2}\nSquare Root: {3}", n, pow?.GetSquareValue(),
-                    pow?.GetCubeValues(), pow?.GetSquareRoots());
+                    "\nSquare:{1}\nCube: {2}\nSquare Root: {3}\nCube Root: {4}", n, pow?.GetSquareValue(),
+                    pow?.GetCubeValues(), pow?.GetSquareRoots(), pow?.GetCubeRoots());
 
             }
             Console.WriteLine();

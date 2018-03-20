@@ -41,7 +41,8 @@
         double GetSquareValue();
         double GetCubeValues();
         double GetSquareRoots();
-      
+        double GetCubeRoots();
+
     }
 
 }
