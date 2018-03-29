@@ -18,6 +18,8 @@ namespace Measuration.Equations
         public PowerRoots(double number)
         {
             _number = number;
+
+            //Operations
             _squareVal = _number * _number;
             _cubeVal = _number * _number * _number;
             _squareRoot = Math.Sqrt(_number);
